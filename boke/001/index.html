@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <!-- 360,以webkit内核进行渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <!-- 以最新内核进行渲染。 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <!-- 百度禁止转码 -->
+    <title>your title</title>
+    <meta name="keywords" content="your keywords">
+    <meta name="description" content="your description">
+    <meta name="author" content="author,email address">
+    <meta name="robots" content="index,follow">
+    <!-- 定义网页搜索引擎索引方式 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js" /></script> -->
+    <script src="js/jquery-1.9.1.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/aa.css">
+    <style type="text/css">
+	
+    h1 {
+        text-align: center;
+    }
+    .wrap {
+		margin:0 auto;width:300px;position:relative;}
+    #code {
+        width: 40px;
+        height: 195px;
+        background: url(images/aa.png) no-repeat;
+        position: absolute;
+      
+        cursor: pointer;
+        top: 120px;
+    }
+    
+    #code_img {
+        width: 200px;
+        height: 200px;
+        background: url(images/12.jpg) no-repeat;
+        position: absolute;
+        left: 100px;
+        cursor: pointer;
+        display: none;
+        top: 115px;
+        background-size: 200px 200px;
+    }
+    </style>
+</head>
+
+<body>
+    <h1 class="moyu">微信扫一扫</h1>
+    <div class="wrap">
+    <span>options</span>
+    <select>
+        <option value="a-fadein">淡入</option>
+        <option value="a-fadeinT">淡入-从上</option>
+        <option value="a-fadeinR">淡入-从右</option>
+        <option value="a-fadeinB">淡入-从下</option>
+        <option value="a-fadeinL">淡入-从左</option>
+        <option value="a-fadeout">淡出</option>
+        <option value="a-fadeoutT">淡出-向上</option>
+        <option value="a-fadeoutR">淡出-向右</option>
+        <option value="a-fadeoutB">淡出-向下</option>
+        <option value="a-fadeoutL">淡出-向左</option>
+        <option value="a-bounce">弹跳</option>
+        <option value="a-bouncein">弹入</option>
+        <option value="a-bounceinT">弹入-从上</option>
+        <option value="a-bounceinR">弹入-从右</option>
+        <option value="a-bounceinB ">弹入-从下</option>
+        <option value="a-bounceinL">弹入-从左</option>
+        <option value="a-bounceoutT ">弹出</option>
+        <option value="a-bounceoutR">弹出-向右</option>
+        <option value="a-bounceoutB">弹出-向下</option>
+        <option value="a-bounceoutL">弹出-向左</option>
+        <option value="a-rotatein">转入 </option>
+        <option value="a-rotateinLT">转入-从左上</option>
+        <option value="a-rotateinLB">转入-从左下 </option>
+        <option value="a-rotateinRT">转入-从右上</option>
+        <option value="a-rotateinRB">转入-从右下</option>
+        <option value="a-rotateout">转出</option>
+        <option value="a-rotateoutLT">转出-向左上</option>
+        <option value="a-rotateoutLB">转出-向左下</option>
+        <option value="a-rotateoutRT">转出-向右下</option>
+        <option value="a-flip">翻转</option>
+        <option value="a-flipinX ">翻入-X轴</option>
+        <option value="a-flipinY">翻入-Y轴</option>
+        <option value="a-flipoutX">翻出-X轴 </option>
+        <option value="a-flipoutY">翻出-Y轴</option>
+        <option value="a-flash">闪烁</option>
+        <option value="a-shake">震颤</option>
+        <option value="a-swing">摇摆</option>
+        <option value="a-wobble">摇晃</option>
+        <option value="a-ring ">震铃</option>
+    </select>
+    <div id="code"></div>
+    <div id="code_img"></div>
+    </div>
+    <script>
+    $("#code").hover(function() {
+        var val = $("option:selected").val();
+        console.log(val);
+        $("#code_img").show().removeClass().addClass(val);
+
+    }, function() {
+        $("#code_img").hide();
+    })
+    </script>
+</body>
+
+</html>
