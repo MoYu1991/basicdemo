@@ -1,16 +1,17 @@
-<html>
+ï»¿<!doctype html>
+<html lang="en-us">
 
 <head>
-    <meta charset="utf-8">
-    <title>jQueryÑÛ¾¦¸úËæÊó±ê×ª¶¯</title>
+    <meta charset="UTF-8">
+    <title>jQueryçœ¼ç›è·Ÿéšé¼ æ ‡è½¬åŠ¨</title>
     <link rel="stylesheet" href="css/style.css" />
 </head>
 <script src="js/jquery-1.8.3.min.js"></script>
 
 <body class="keBody">
-    <h1 class="keTitle">jQueryÑÛ¾¦¸úËæÊó±ê×ª¶¯</h1>
+    <h1 class="keTitle">jQueryçœ¼ç›è·Ÿéšé¼ æ ‡è½¬åŠ¨</h1>
     <div class="kePublic">
-        <!--Ğ§¹ûhtml¿ªÊ¼-->
+        <!--æ•ˆæœhtmlå¼€å§‹-->
         <div class='content'>
             <p style='text-align:center;'>
                 <div class='eye_wrapper' id='eyeballs'>
@@ -22,9 +23,9 @@
         </div>
     </div>
     <script>
-    /* Ä§Óó
-     *	left_center_offset ºÍright_center_offset ¼ÇÂ¼ÑÛ¾¦µÄ³õÊ¼Î»ÖÃ¡£
-     *	radius : ÑÛÇò¿ÉÒÔ»î¶¯µÄÔ²µÄ°ë¾¶¡£
+    /* é­”èŠ‹æ³¨ï¼š
+     *  left_center_offset å’Œright_center_offset è®°å½•çœ¼ç›çš„åˆå§‹ä½ç½®ã€‚
+     *  radius : çœ¼çƒå¯ä»¥æ´»åŠ¨çš„åœ†çš„åŠå¾„ã€‚
      */
     var left_center_offset = {
             left: 30,
@@ -37,22 +38,22 @@
         radius = 10;
 
     var setEyeOffset = function(event) {
-        // event ÎªÊó±êµÄÎ»ÖÃ¡£
+        // event ä¸ºé¼ æ ‡çš„ä½ç½®ã€‚
         var offset = $(".eye_wrapper").offset();
-        var x1 = offset.left + left_center_offset.left; //x1Îª×óÑÛ¾¦ÔÚÆÁÄ»ÉÏµÄleftÎ»ÖÃ¡£
-        var y1 = offset.top + left_center_offset.top; //y1Îª×óÑÛ¾¦ÔÚÆÁÄ»ÉÏµÄtopÎ»ÖÃ¡£
+        var x1 = offset.left + left_center_offset.left; //x1ä¸ºå·¦çœ¼ç›åœ¨å±å¹•ä¸Šçš„leftä½ç½®ã€‚
+        var y1 = offset.top + left_center_offset.top; //y1ä¸ºå·¦çœ¼ç›åœ¨å±å¹•ä¸Šçš„topä½ç½®ã€‚
         var x2 = offset.left + right_center_offset.left;
         var y2 = offset.top + right_center_offset.top;
 
-        var n1 = event.clientX - x1; //Êó±êµÄÎ»ÖÃ¼õÈ¥×óÑÛleftÎ»ÖÃ
+        var n1 = event.clientX - x1; //é¼ æ ‡çš„ä½ç½®å‡å»å·¦çœ¼leftä½ç½®
         var m1 = -(event.clientY - y1);
         var k1 = Math.atan2(m1, n1);
 
         var n2 = event.clientX - x2;
         var m2 = -(event.clientY - y2);
-        var k2 = Math.atan2(m2, n2); //atan2() ·½·¨¿É·µ»Ø´Ó x Öáµ½µã (x,y) Ö®¼äµÄ½Ç¶È¡£
+        var k2 = Math.atan2(m2, n2); //atan2() æ–¹æ³•å¯è¿”å›ä» x è½´åˆ°ç‚¹(x, y) ä¹‹é—´çš„è§’åº¦ã€‚
 
-        var x11 = (Math.cos(k1) * radius + x1).toFixed(0); // ½Ç¶ÈµÄcosÖµ*°ë¾¶¡£
+        var x11 = (Math.cos(k1) * radius + x1).toFixed(0); // è§’åº¦çš„coså€¼ * åŠå¾„ã€‚
         var y11 = ((-Math.sin(k1) * radius) + y1).toFixed(0);
         $(".eye-left").offset({
             left: x11,
@@ -66,15 +67,15 @@
         })
     };
     $(window).mousemove(setEyeOffset);
-    /*	Ë¼Â·£ºÄÑµãÔÚÊıÑ§Èı½Çº¯Êı£¨ºÃ°É£¬Õâ¸öÎÒÍü¼Ç¶¼²î²»¶àÁË¡££©£º
-	* 	µÃµ½Êó±êÒÆ¶¯Î»ÖÃÓëÑÛÇòµÄÎ»ÖÃµÄ¼Ğ½Ç½Ç¶È¡£
+    /*  æ€è·¯ï¼šéš¾ç‚¹åœ¨æ•°å­¦ä¸‰è§’å‡½æ•°ï¼ˆå¥½å§ï¼Œè¿™ä¸ªæˆ‘å¿˜è®°éƒ½å·®ä¸å¤šäº†ã€‚ï¼‰ï¼š
+    *   å¾—åˆ°é¼ æ ‡ç§»åŠ¨ä½ç½®ä¸çœ¼çƒçš„ä½ç½®çš„å¤¹è§’è§’åº¦ã€‚
 
-	*	È»ºóÀûÓÃÔ²µÄ°ë¾¶¡£³ËÒÔ½Ç¶ÈµÄcosÖµ£¬µÃµ½leftÖµ¡£
-	*	³ËÒÔ½Ç¶ÈµÄcosÖµ£¬µÃµ½topÖµ¡£
-	*	×îºóÉèÖÃÑÛÇòµÄÎ»ÖÃ£¬OK
-	*/
+    *   ç„¶ååˆ©ç”¨åœ†çš„åŠå¾„ã€‚ä¹˜ä»¥è§’åº¦çš„coså€¼ï¼Œå¾—åˆ°leftå€¼ã€‚
+    *   ä¹˜ä»¥è§’åº¦çš„coså€¼ï¼Œå¾—åˆ°topå€¼ã€‚
+    *   æœ€åè®¾ç½®çœ¼çƒçš„ä½ç½®ï¼ŒOK
+    */
     </script>
-    <!--Ğ§¹ûhtml½áÊø-->
+    <!--æ•ˆæœhtmlç»“æŸ-->
     <div class="clear"></div>
     </div>
 </body>
