@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <!-- 360,以webkit内核进行渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <!-- 以最新内核进行渲染。 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <!-- 百度禁止转码 -->
+    <title>moyu demo</title>
+    <meta name="keywords" content="demo 测试 魔芋">
+    <meta name="description" content="魔芋的测试示例">
+    <meta name="author" content="魔芋,15000720652@163.com,http://www.cnblogs.com/moyuling/">
+    <meta name="robots" content="index,follow">
+    <!-- 定义网页搜索引擎索引方式 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.js"></script>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    ul {
+        list-style: none;
+    }
+    
+    .container {
+        margin: 200px;
+        width: 300px;
+        height: 150px;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .container ul {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: gray;
+    }
+    
+    .container ul li {
+        height: 150px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="http://www.baidu.com">
+            <ul class="list">
+                <li>11111111</li>
+                <li>22222222</li>
+                <li>33333333</li>
+            </ul>
+        </a>
+    </div>
+    <script>
+    var adModule = (function() {
+        var list, item, totalHeight, itemHeight, doAction;
+
+        function upAnimate(target, callback) {
+            var timer;
+            var curr;
+
+            timer = setInterval(function() {
+                curr = list.offsetTop;
+
+                if (list.offsetTop === target) {
+                    clearInterval(timer);
+                    timer = null;
+                    if (callback) callback();
+                    return;
+                }
+
+                list.style.top = (curr - 1) + 'px';
+
+            }, 10);
+        }
+
+        function delay(fn, second, context) {
+            return function() {
+                var args = arguments;
+                setTimeout(function() {
+                    fn.apply(context, args);
+                }, second);
+            };
+        }
+
+        function getTarget() {
+            var curr = list.offsetTop;
+            if (curr === -totalHeight) {
+                curr = list.style.top = 0;
+            }
+            return curr - itemHeight;
+        }
+
+        function init(dom, second) {
+            list = dom;
+
+            item = list.children[0];
+            totalHeight = list.offsetHeight;
+            itemHeight = item.offsetHeight;
+
+            list.appendChild(item.cloneNode(true));
+
+            doAction = delay(function() {
+                upAnimate(getTarget(), doAction);
+            }, second || 500);
+
+            doAction();
+        }
+
+        return {
+            init: init
+        };
+    })();
+
+    adModule.init(document.querySelectorAll('.list')[0], 500);
+    </script>
+</body>
+
+</html>
